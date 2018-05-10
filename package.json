@@ -1,0 +1,24 @@
+{
+  "name": "coffee-marketplace",
+  "version": "1.0.0",
+  "description": "Backend test for CornerJob: coffe marketplace",
+  "main": "app.js",
+  "license": "UNLICENSED",
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/oriolgg/coffeemp.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "mongoose": "^5.0.17",
+    "mongoose-unique-validator": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oriol Garcia"
+}
