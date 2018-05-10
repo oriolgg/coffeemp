@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator')
+const uniqueValidator = require('mongoose-unique-validator');
+const winston = require('winston');
 
 const schema = new mongoose.Schema({
 
@@ -23,5 +24,16 @@ const schema = new mongoose.Schema({
 
 });
 schema.plugin(uniqueValidator)
+
+schema.pre('save', function (next) {
+    this.wasNew = this.isNew;
+    next();
+});
+
+schema.post('save', function (doc) {
+    if (this.wasNew) {
+        winston.log("info", "SET COFFEE -> " + JSON.stringify(doc));
+    }
+});
 
 module.exports = mongoose.model('Coffee', schema);

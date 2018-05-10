@@ -61,17 +61,14 @@ module.exports = {
                     error: true,
                     error_message: err
                 };
-                return cb(data);
+            } else {
+                data = {
+                    'data': {order}
+                };
             }
-
-            data = {
-                'data': {order}
-            };
 
             return cb(data);
         });
-
-        return true;
     },
     update: (id, data, cb) => {
         Order.update({'_id': id}, {$set: data}, (err) => {
